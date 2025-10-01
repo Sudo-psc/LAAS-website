@@ -1,5 +1,12 @@
 // Tipos principais da aplicação
 
+export interface PlanAddon {
+  id: string;
+  name: string;
+  price: number;
+  description: string;
+}
+
 export interface Plan {
   id: string;
   name: string;
@@ -10,6 +17,8 @@ export interface Plan {
   lensType: string;
   badge?: 'popular' | 'economia' | 'premium';
   whatsappMessage: string;
+  addons?: PlanAddon[];
+  isLaunchPromo?: boolean;
 }
 
 export interface FAQItem {

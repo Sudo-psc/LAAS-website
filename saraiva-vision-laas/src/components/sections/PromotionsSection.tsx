@@ -37,13 +37,40 @@ export default function PromotionsSection() {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto mb-12">
-          {/* Paquimetria Gratuita */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto mb-12">
+          {/* Telemedicina Gratuita - LANÇAMENTO */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
+            className="bg-gradient-to-br from-blue-500 to-indigo-600 text-white rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 relative overflow-hidden"
+          >
+            <div className="absolute top-4 right-4 bg-white text-blue-600 px-3 py-1 rounded-full text-xs font-bold animate-pulse">
+              🚀 LANÇAMENTO
+            </div>
+            <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center mb-6">
+              <Gift size={40} className="text-white" />
+            </div>
+            <h3 className="text-2xl font-bold mb-3">
+              1 Consulta de Telemedicina GRÁTIS
+            </h3>
+            <p className="text-white/90 mb-4">
+              Promoção exclusiva de lançamento! Consulta por telemedicina <strong>totalmente gratuita</strong> para novos assinantes.
+            </p>
+            <div className="bg-white/20 backdrop-blur-sm rounded-xl p-4 border-2 border-white/30">
+              <p className="text-sm font-semibold">
+                💻 Consulta online com especialista qualificado
+              </p>
+            </div>
+          </motion.div>
+
+          {/* Paquimetria Gratuita */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.05 }}
             className="bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 border-2 border-purple-200"
           >
             <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center mb-6">
@@ -76,11 +103,9 @@ export default function PromotionsSection() {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="bg-gradient-to-br from-orange-500 to-red-500 text-white rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 relative overflow-hidden"
           >
-            {/* Badge de Urgência */}
             <div className="absolute top-4 right-4 bg-white text-orange-600 px-3 py-1 rounded-full text-xs font-bold animate-pulse">
               VAGAS LIMITADAS
             </div>
-
             <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center mb-6">
               <Zap size={40} className="text-white" />
             </div>
@@ -103,7 +128,7 @@ export default function PromotionsSection() {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.2 }}
+            transition={{ duration: 0.5, delay: 0.15 }}
             className="bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 border-2 border-green-200"
           >
             <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-600 rounded-2xl flex items-center justify-center mb-6">
@@ -115,12 +140,63 @@ export default function PromotionsSection() {
             <p className="text-gray-600 mb-4">
               Ganhe <strong>1 MÊS GRÁTIS</strong> para cada amigo que assinar através da sua indicação.
             </p>
-            <div className="bg-green-50 rounded-xl p-4 border-2 border-green-200 mb-4">
+            <div className="bg-green-50 rounded-xl p-4 border-2 border-green-200">
               <p className="text-sm text-green-800 font-semibold mb-2">
                 💰 Sem limite de indicações!
               </p>
               <p className="text-xs text-green-700">
                 Quanto mais você indica, mais meses grátis acumula
+              </p>
+            </div>
+          </motion.div>
+
+          {/* Planos Família */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="bg-gradient-to-br from-pink-500 to-rose-600 text-white rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105"
+          >
+            <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center mb-6">
+              <Users size={40} className="text-white" />
+            </div>
+            <h3 className="text-2xl font-bold mb-3">
+              Planos Família
+            </h3>
+            <p className="text-white/90 mb-4">
+              Adicione membros da família e ganhe <strong>2 MESES GRÁTIS</strong> para cada novo membro incluído!
+            </p>
+            <div className="bg-white/20 backdrop-blur-sm rounded-xl p-4 border-2 border-white/30">
+              <p className="text-sm font-semibold">
+                👨‍👩‍👧‍👦 Desconto progressivo - Mais membros, mais economia!
+              </p>
+            </div>
+          </motion.div>
+
+          {/* Sorteio Ray-Ban */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.25 }}
+            className="bg-gradient-to-br from-amber-400 to-orange-500 text-white rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 relative overflow-hidden"
+          >
+            <div className="absolute top-4 right-4 bg-white text-amber-600 px-3 py-1 rounded-full text-xs font-bold">
+              🎁 SORTEIO
+            </div>
+            <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center mb-6">
+              <Gift size={40} className="text-white" />
+            </div>
+            <h3 className="text-2xl font-bold mb-3">
+              Sorteio Ray-Ban
+            </h3>
+            <p className="text-white/90 mb-4">
+              Todos os assinantes participam automaticamente do <strong>sorteio mensal de óculos de sol Ray-Ban</strong> originais!
+            </p>
+            <div className="bg-white/20 backdrop-blur-sm rounded-xl p-4 border-2 border-white/30">
+              <p className="text-sm font-semibold">
+                🕶️ Sorteio mensal entre todos os assinantes ativos
               </p>
             </div>
           </motion.div>
