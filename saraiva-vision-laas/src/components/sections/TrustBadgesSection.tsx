@@ -1,8 +1,9 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Star, Users, Award, Shield, ExternalLink } from 'lucide-react';
+import { Star, Users, Award, ExternalLink } from 'lucide-react';
 import { clinicInfo } from '@/data/compliance';
+import Image from 'next/image';
 
 export default function TrustBadgesSection() {
   return (
@@ -68,7 +69,15 @@ export default function TrustBadgesSection() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="flex items-center gap-3 bg-white/95 backdrop-blur-sm px-6 py-4 rounded-2xl shadow-2xl hover:shadow-3xl hover:scale-105 transition-all duration-300 group"
           >
-            <Shield size={40} className="text-red-500" />
+            <div className="relative w-12 h-12 flex-shrink-0">
+              <Image
+                src="/icon_amoresaude.png"
+                alt="Amor e Saúde"
+                width={48}
+                height={48}
+                className="object-contain"
+              />
+            </div>
             <div>
               <div className="text-sm text-gray-600 font-medium">Parceiro Oficial</div>
               <div className="text-xl font-bold text-gray-900">{clinicInfo.partner.name}</div>
