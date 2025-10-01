@@ -1,11 +1,33 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { MessageCircle, CheckCircle } from 'lucide-react';
+import { MessageCircle, CheckCircle, Sparkles, Rocket } from 'lucide-react';
 import { generateWhatsAppLink } from '@/lib/utils';
+import { useState, useEffect } from 'react';
 
 export default function HeroSection() {
   const whatsappLink = generateWhatsAppLink();
+  const [displayPrice, setDisplayPrice] = useState(0);
+
+  // Count-up animation para o preço R$ 89
+  useEffect(() => {
+    const targetPrice = 89;
+    const duration = 2000; // 2 segundos
+    const steps = 60;
+    const increment = targetPrice / steps;
+    let currentStep = 0;
+
+    const timer = setInterval(() => {
+      currentStep++;
+      setDisplayPrice(Math.min(currentStep * increment, targetPrice));
+      
+      if (currentStep >= steps) {
+        clearInterval(timer);
+      }
+    }, duration / steps);
+
+    return () => clearInterval(timer);
+  }, []);
 
   return (
     <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 via-white to-blue-50 overflow-hidden">
@@ -20,11 +42,22 @@ export default function HeroSection() {
 
       <div className="container mx-auto px-4 py-20 relative z-10">
         <div className="max-w-5xl mx-auto text-center">
-          {/* Badge Médico com Brilho */}
+          {/* Badge LANÇAMENTO */}
           <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
+            className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-6 py-3 rounded-full text-sm font-bold mb-4 shadow-xl border-2 border-blue-400 animate-pulse"
+          >
+            <Rocket size={20} />
+            <span>🎉 LANÇAMENTO: 1 Consulta Telemedicina GRÁTIS</span>
+          </motion.div>
+
+          {/* Badge Médico */}
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
             className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-100 to-indigo-100 text-blue-800 px-6 py-3 rounded-full text-sm font-semibold mb-6 shadow-lg border border-blue-200"
           >
             <CheckCircle size={18} className="text-green-600" />
@@ -41,22 +74,46 @@ export default function HeroSection() {
             Lentes de Contato por{' '}
             <span className="text-blue-600">Assinatura</span>
             <br />
-            <span className="text-green-600">Economize até 48%</span>
+            <span className="text-green-600">Economize até 71%</span>
           </motion.h1>
 
-          {/* Subheadline com Economia */}
+          {/* Subheadline com Preço Destacado */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
             className="mb-8"
           >
-            <p className="text-xl md:text-2xl text-gray-700 mb-4">
+            <p className="text-xl md:text-2xl text-gray-700 mb-6">
               O primeiro serviço de assinatura de lentes de contato do Brasil
             </p>
+            
+            {/* Preço Destaque com Count-up */}
+            <div className="bg-gradient-to-br from-purple-600 via-blue-600 to-cyan-600 rounded-3xl p-8 mb-4 shadow-2xl transform hover:scale-105 transition-all duration-300">
+              <div className="flex items-baseline justify-center gap-2 mb-2">
+                <span className="text-white/90 text-2xl font-semibold">A partir de</span>
+              </div>
+              <div className="flex items-baseline justify-center gap-2">
+                <span className="text-white text-6xl md:text-8xl font-black tracking-tight">
+                  R$ {displayPrice.toFixed(0)}
+                </span>
+                <span className="text-white/90 text-3xl font-bold">/mês</span>
+              </div>
+              <div className="flex items-center justify-center gap-2 mt-3">
+                <Sparkles size={20} className="text-yellow-300" />
+                <span className="text-white/90 text-lg font-semibold">
+                  12 pares/ano + consultas incluídas
+                </span>
+              </div>
+            </div>
+
+            {/* Comparação de Economia */}
             <div className="inline-flex flex-col sm:flex-row items-center gap-3 bg-gradient-to-r from-green-50 to-emerald-50 border-2 border-green-300 rounded-2xl px-6 py-4">
               <span className="text-gray-600 line-through text-lg">De R$ 3.730/ano</span>
-              <span className="text-3xl font-bold text-green-600">para R$ 1.949,94/ano</span>
+              <span className="text-3xl font-bold text-green-600">para R$ 1.068/ano</span>
+              <span className="bg-green-600 text-white px-3 py-1 rounded-full text-sm font-bold">
+                ECONOMIZE 71%
+              </span>
             </div>
           </motion.div>
 
