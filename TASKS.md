@@ -7,11 +7,76 @@
 
 ---
 
+## 📁 ESTRUTURA DO PROJETO
+
+```
+LAAS-page/
+├── frontend/
+│   └── saraiva-vision-laas/          # Next.js 15 App
+│       ├── src/
+│       │   ├── app/                   # App Router (Next.js 15)
+│       │   │   ├── layout.tsx
+│       │   │   ├── page.tsx
+│       │   │   ├── globals.css
+│       │   │   └── favicon.ico
+│       │   ├── components/
+│       │   │   ├── Header.tsx
+│       │   │   ├── compliance/
+│       │   │   │   └── CookieBanner.tsx
+│       │   │   ├── sections/         # Seções da landing page
+│       │   │   │   ├── HeroSection.tsx
+│       │   │   │   ├── PlansSection.tsx
+│       │   │   │   ├── PromotionsSection.tsx
+│       │   │   │   ├── CalculatorSection.tsx
+│       │   │   │   ├── ProblemSolutionSection.tsx
+│       │   │   │   ├── TrustBadgesSection.tsx
+│       │   │   │   ├── TestimonialsSection.tsx
+│       │   │   │   ├── AboutClinicSection.tsx
+│       │   │   │   ├── ClinicServicesSection.tsx
+│       │   │   │   ├── WebsiteReferenceSection.tsx
+│       │   │   │   ├── HowItWorksSection.tsx
+│       │   │   │   ├── DifferentialsSection.tsx
+│       │   │   │   ├── FAQSection.tsx
+│       │   │   │   └── Footer.tsx
+│       │   │   └── ui/               # Componentes reutilizáveis
+│       │   ├── data/
+│       │   │   ├── plans.ts          # 8 planos (R$ 89-349)
+│       │   │   ├── faq.ts
+│       │   │   └── compliance.ts
+│       │   ├── lib/
+│       │   │   ├── utils.ts
+│       │   │   └── analytics.ts
+│       │   └── types/
+│       │       └── index.ts          # TypeScript types
+│       ├── public/
+│       │   ├── icones/               # 11 ícones customizados
+│       │   │   └── icones sem fundo/
+│       │   └── logo_prata_optimized.png
+│       ├── package.json
+│       ├── tsconfig.json
+│       ├── next.config.ts
+│       ├── tailwind.config.ts
+│       └── jest.config.js
+├── backend/                          # Backend (vazio por enquanto)
+├── testes/                           # Testes unitários
+│   ├── app/
+│   ├── components/
+│   ├── data/
+│   └── lib/
+├── docs/                             # Documentação
+│   └── DOCUMENTACAO_TECNICA.md
+├── TASKS.md                          # Este arquivo
+├── PRICING_RESTRUCTURE_SUMMARY.md
+└── README.md
+```
+
+---
+
 ## 🎯 PRIORIDADE ALTA (Fazer primeiro)
 
 ### 1. Criar Componente AddonsShowcase
 **Objetivo:** Exibir sistema de addons disponíveis para upsell  
-**Localização:** `/src/components/sections/AddonsShowcase.tsx`
+**Localização:** `/frontend/saraiva-vision-laas/src/components/sections/AddonsShowcase.tsx`
 
 **Funcionalidades:**
 - [ ] Card para cada addon (topografia, par emergência, lentes coloridas, telemedicina)
@@ -51,7 +116,7 @@
 
 ### 2. Atualizar PlansSection UI
 **Objetivo:** Exibir novos recursos visuais dos planos  
-**Localização:** `/src/components/sections/PlansSection.tsx`
+**Localização:** `/frontend/saraiva-vision-laas/src/components/sections/PlansSection.tsx`
 
 **Melhorias:**
 - [ ] **Badge "LANÇAMENTO"** no Plano 1 (Básico Mensal) - usar `isLaunchPromo`
@@ -103,7 +168,7 @@
 
 ### 3. Criar Seção PremiumStorytelling
 **Objetivo:** Storytelling premium CFM-compliant  
-**Localização:** `/src/components/sections/PremiumStorytelling.tsx`
+**Localização:** `/frontend/saraiva-vision-laas/src/components/sections/PremiumStorytelling.tsx`
 
 **Conteúdo (CFM-compliant):**
 - [ ] **Comodidade**
@@ -144,7 +209,7 @@
 
 ### 4. Atualizar CalculatorSection
 **Objetivo:** Recalcular economia com novos preços  
-**Localização:** `/src/components/sections/CalculatorSection.tsx`
+**Localização:** `/frontend/saraiva-vision-laas/src/components/sections/CalculatorSection.tsx`
 
 **Mudanças:**
 - [ ] Atualizar valores base dos 5 tipos de lente
@@ -174,7 +239,7 @@
 
 ### 5. Atualizar HeroSection
 **Objetivo:** Destacar novo preço de entrada  
-**Localização:** `/src/components/sections/HeroSection.tsx`
+**Localização:** `/frontend/saraiva-vision-laas/src/components/sections/HeroSection.tsx`
 
 **Mudanças:**
 - [ ] Headline: "A partir de **R$ 89/mês**" (destaque visual)
@@ -198,7 +263,7 @@
 
 ### 6. Atualizar ProblemSolutionSection
 **Objetivo:** Recalcular economia com preço base R$ 89  
-**Localização:** `/src/components/sections/ProblemSolutionSection.tsx`
+**Localização:** `/frontend/saraiva-vision-laas/src/components/sections/ProblemSolutionSection.tsx`
 
 **Mudanças:**
 - [ ] **Modelo Tradicional:** Manter R$ 3.730/ano
@@ -224,7 +289,7 @@
 
 ### 7. Implementar Contador de Vagas (Topografia Primeiros 30)
 **Objetivo:** Criar urgência real  
-**Localização:** `/src/components/sections/PromotionsSection.tsx`
+**Localização:** `/frontend/saraiva-vision-laas/src/components/sections/PromotionsSection.tsx`
 
 **Funcionalidades:**
 - [ ] Variável de estado: `vagasRestantes` (iniciar com 30)
