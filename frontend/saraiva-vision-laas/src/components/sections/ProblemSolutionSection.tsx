@@ -15,12 +15,12 @@ export default function ProblemSolutionSection() {
   };
 
   const laasCost = {
-    planoMensal: 162.50,
-    total: 1949.94 // Plano Conforto Anual (valor exato do plans.ts)
+    planoMensal: 89, // Plano Básico Mensal (entrada mais acessível)
+    total: 1068 // 89 x 12 meses = R$ 1.068/ano
   };
 
-  const savings = tradicionalCost.total - laasCost.total;
-  const savingsPercentage = ((savings / tradicionalCost.total) * 100).toFixed(0);
+  const savings = tradicionalCost.total - laasCost.total; // R$ 2.662
+  const savingsPercentage = ((savings / tradicionalCost.total) * 100).toFixed(0); // 71%
 
   return (
     <section className="py-20 bg-white" id="problema-solucao">
@@ -117,15 +117,16 @@ export default function ProblemSolutionSection() {
 
             <div className="space-y-4 mb-6">
               <div className="flex justify-between items-center bg-white rounded-lg p-4">
-                <span className="text-gray-700">Plano Conforto Anual</span>
+                <span className="text-gray-700">Plano Básico Mensal</span>
                 <span className="font-bold text-gray-900">{formatCurrency(laasCost.planoMensal)}/mês</span>
               </div>
               <div className="bg-white rounded-lg p-4">
                 <p className="text-sm text-green-700 font-semibold mb-2">✅ TUDO INCLUÍDO:</p>
                 <ul className="text-sm text-gray-700 space-y-1">
-                  <li>• 12 pares de lentes/ano</li>
+                  <li>• 12 pares de lentes esféricas/ano</li>
                   <li>• Consultas de acompanhamento</li>
-                  <li>• Suporte via WhatsApp</li>
+                  <li>• Paquimetria incluída</li>
+                  <li>• Suporte via WhatsApp 24/7</li>
                   <li>• Sem surpresas ou taxas ocultas</li>
                 </ul>
               </div>
