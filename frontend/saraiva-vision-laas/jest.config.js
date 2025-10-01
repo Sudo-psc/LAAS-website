@@ -24,4 +24,12 @@ module.exports = {
   testPathIgnorePatterns: [
     '<rootDir>/src/__tests__/setup.ts'
   ],
+  transformIgnorePatterns: [
+    'node_modules/(?!(framer-motion|lucide-react)/)'
+  ],
+  globals: {
+    'babel-jest': {
+      configFile: '<rootDir>/.babelrc.jest.js',
+    },
+  },
 };

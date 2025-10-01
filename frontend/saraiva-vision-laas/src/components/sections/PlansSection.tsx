@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { MessageCircle, Check, Star } from 'lucide-react';
+import { MessageCircle, Check, Star, Video, Shield, Microscope, Plus } from 'lucide-react';
 import { plans } from '@/data/plans';
 import { formatCurrency, generateWhatsAppLink } from '@/lib/utils';
 import Image from 'next/image';
@@ -44,6 +44,24 @@ export default function PlansSection() {
       default:
         return '';
     }
+  };
+
+  // Verifica se o plano tem telemedicina
+  const hasTelemedicine = (features: string[]) => {
+    return features.some(f => 
+      f.toLowerCase().includes('telemedicina') || 
+      f.toLowerCase().includes('telemedicina')
+    );
+  };
+
+  // Verifica se o plano tem seguro
+  const hasInsurance = (features: string[]) => {
+    return features.some(f => f.includes('Seguro contra perda ou roubo'));
+  };
+
+  // Verifica se o plano tem meibografia
+  const hasMeibography = (features: string[]) => {
+    return features.some(f => f.includes('Meibografia INCLUSA'));
   };
 
   return (
@@ -97,7 +115,14 @@ export default function PlansSection() {
                 </div>
               )}
 
-              <div className="p-6">
+              <div className="p-6 relative">
+                {/* Badge LANÇAMENTO - Apenas Plano 1 */}
+                {plan.isLaunchPromo && (
+                  <div className="absolute top-4 right-4 bg-gradient-to-r from-blue-500 to-indigo-600 text-white px-3 py-1 rounded-full text-xs font-bold animate-pulse shadow-lg">
+                    🚀 LANÇAMENTO
+                  </div>
+                )}
+
                 {/* Nome do Plano */}
                 <h3 className="text-2xl font-bold text-gray-900 mb-2">{plan.name}</h3>
                 <p className="text-sm text-gray-600 mb-4">{plan.lensType}</p>
@@ -116,7 +141,7 @@ export default function PlansSection() {
                 </div>
 
                 {/* Features */}
-                <ul className="space-y-3 mb-6">
+                <ul className="space-y-3 mb-4">
                   {plan.features.map((feature, idx) => (
                     <li key={idx} className="flex items-start gap-2 text-sm text-gray-700">
                       <Check size={18} className="text-green-600 flex-shrink-0 mt-0.5" />
@@ -124,6 +149,54 @@ export default function PlansSection() {
                     </li>
                   ))}
                 </ul>
+
+                {/* Badges de Benefícios Especiais */}
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {hasTelemedicine(plan.features) && (
+                    <div className="flex items-center gap-1 bg-blue-50 text-blue-700 px-2 py-1 rounded-full text-xs font-semibold border border-blue-200">
+                      <Video size={12} />
+                      <span>Telemedicina</span>
+                    </div>
+                  )}
+                  {hasInsurance(plan.features) && (
+                    <div className="flex items-center gap-1 bg-green-50 text-green-700 px-2 py-1 rounded-full text-xs font-semibold border border-green-200">
+                      <Shield size={12} />
+                      <span>Seguro</span>
+                    </div>
+                  )}
+                  {hasMeibography(plan.features) && (
+                    <div className="flex items-center gap-1 bg-purple-50 text-purple-700 px-2 py-1 rounded-full text-xs font-semibold border border-purple-200">
+                      <Microscope size={12} />
+                      <span>Meibografia</span>
+                    </div>
+                  )}
+                  {plan.id === 'conforto-anual' && (
+                    <div className="flex items-center gap-1 bg-amber-50 text-amber-700 px-2 py-1 rounded-full text-xs font-semibold border border-amber-200">
+                      <Star size={12} />
+                      <span>23% economia</span>
+                    </div>
+                  )}
+                </div>
+
+                {/* Addons Disponíveis */}
+                {plan.addons && plan.addons.length > 0 && (
+                  <div className="mb-4 p-3 bg-purple-50 rounded-lg border border-purple-200">
+                    <div className="text-xs font-semibold text-purple-900 mb-2 flex items-center gap-1">
+                      <Plus size={14} />
+                      Addons disponíveis:
+                    </div>
+                    <div className="flex flex-wrap gap-1">
+                      {plan.addons.map((addon) => (
+                        <span
+                          key={addon.id}
+                          className="bg-white text-purple-700 px-2 py-0.5 rounded-full text-xs font-medium border border-purple-300"
+                        >
+                          {addon.name}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                )}
 
                 {/* CTA */}
                 <a
