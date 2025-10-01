@@ -5,6 +5,7 @@ import CalculatorSection from '@/components/sections/CalculatorSection';
 import PlansSection from '@/components/sections/PlansSection';
 import PromotionsSection from '@/components/sections/PromotionsSection';
 import AddonsShowcase from '@/components/sections/AddonsShowcase';
+import PremiumStorytelling from '@/components/sections/PremiumStorytelling';
 import TestimonialsSection from '@/components/sections/TestimonialsSection';
 import AboutClinicSection from '@/components/sections/AboutClinicSection';
 import ClinicServicesSection from '@/components/sections/ClinicServicesSection';
@@ -25,6 +26,7 @@ export default function Home() {
       <PlansSection />
       <PromotionsSection />
       <AddonsShowcase />
+      <PremiumStorytelling />
       <TestimonialsSection />
       <AboutClinicSection />
       <ClinicServicesSection />
