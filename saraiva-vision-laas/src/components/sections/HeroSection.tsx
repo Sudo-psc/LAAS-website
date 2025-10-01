@@ -41,7 +41,7 @@ export default function HeroSection() {
             Lentes de Contato por{' '}
             <span className="text-blue-600">Assinatura</span>
             <br />
-            <span className="text-green-600">Economize até 70%</span>
+            <span className="text-green-600">Economize até 48%</span>
           </motion.h1>
 
           {/* Subheadline com Economia */}
@@ -55,8 +55,8 @@ export default function HeroSection() {
               O primeiro serviço de assinatura de lentes de contato do Brasil
             </p>
             <div className="inline-flex flex-col sm:flex-row items-center gap-3 bg-gradient-to-r from-green-50 to-emerald-50 border-2 border-green-300 rounded-2xl px-6 py-4">
-              <span className="text-gray-600 line-through text-lg">De R$ 5.280/ano</span>
-              <span className="text-3xl font-bold text-green-600">para R$ 1.950/ano</span>
+              <span className="text-gray-600 line-through text-lg">De R$ 3.730/ano</span>
+              <span className="text-3xl font-bold text-green-600">para R$ 1.949,94/ano</span>
             </div>
           </motion.div>
 

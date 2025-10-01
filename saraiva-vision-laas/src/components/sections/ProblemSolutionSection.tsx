@@ -7,18 +7,19 @@ import { formatCurrency } from '@/lib/utils';
 export default function ProblemSolutionSection() {
   const tradicionalCost = {
     consulta: 350,
-    lentes: 440, // 6 pares x ~R$ 73/par
-    revisoes: 150, // 2 revisões x R$ 75
-    total: 940
+    lentes: 2640, // 12 pares x R$ 220/par (média mercado)
+    revisoes: 300, // 4 revisões x R$ 75
+    perdas: 440, // Custo médio com perda/danos
+    total: 3730 // Total anual real
   };
 
   const laasCost = {
     planoMensal: 162.50,
-    total: 1950 // Plano anual
+    total: 1949.94 // Plano Conforto Anual (valor exato do plans.ts)
   };
 
-  const savings = tradicionalCost.total * 12 - laasCost.total;
-  const savingsPercentage = ((savings / (tradicionalCost.total * 12)) * 100).toFixed(0);
+  const savings = tradicionalCost.total - laasCost.total;
+  const savingsPercentage = ((savings / tradicionalCost.total) * 100).toFixed(0);
 
   return (
     <section className="py-20 bg-white" id="problema-solucao">
@@ -64,21 +65,25 @@ export default function ProblemSolutionSection() {
                 <span className="font-bold text-gray-900">{formatCurrency(tradicionalCost.consulta)}</span>
               </div>
               <div className="flex justify-between items-center bg-white rounded-lg p-4">
-                <span className="text-gray-700">6 pares de lentes</span>
+                <span className="text-gray-700">12 pares de lentes/ano</span>
                 <span className="font-bold text-gray-900">{formatCurrency(tradicionalCost.lentes)}</span>
               </div>
               <div className="flex justify-between items-center bg-white rounded-lg p-4">
-                <span className="text-gray-700">Revisões (2x)</span>
+                <span className="text-gray-700">Revisões (4x/ano)</span>
                 <span className="font-bold text-gray-900">{formatCurrency(tradicionalCost.revisoes)}</span>
+              </div>
+              <div className="flex justify-between items-center bg-white rounded-lg p-4">
+                <span className="text-gray-700">Perda/danos estimados</span>
+                <span className="font-bold text-gray-900">{formatCurrency(tradicionalCost.perdas)}</span>
               </div>
             </div>
 
             <div className="border-t-2 border-red-300 pt-4">
               <div className="flex justify-between items-center mb-2">
                 <span className="text-lg font-semibold text-gray-900">Total anual:</span>
-                <span className="text-3xl font-bold text-red-600">{formatCurrency(tradicionalCost.total * 12)}</span>
+                <span className="text-3xl font-bold text-red-600">{formatCurrency(tradicionalCost.total)}</span>
               </div>
-              <p className="text-sm text-red-700 font-semibold">+ Custos não planejados com perda/danos</p>
+              <p className="text-sm text-red-700 font-semibold">Custos variáveis e imprevisíveis</p>
             </div>
           </motion.div>
 

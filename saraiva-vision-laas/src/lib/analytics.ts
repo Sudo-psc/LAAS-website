@@ -152,8 +152,8 @@ export function trackSectionView(sectionName: string): void {
 /**
  * Initialize scroll tracking
  */
-export function initScrollTracking(): void {
-  if (typeof window === 'undefined') return;
+export function initScrollTracking(): () => void {
+  if (typeof window === 'undefined') return () => {};
 
   let scrollTracked = {
     25: false,
