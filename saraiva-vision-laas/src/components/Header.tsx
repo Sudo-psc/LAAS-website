@@ -41,7 +41,7 @@ export default function Header() {
           >
             <div className="relative w-10 h-10">
               <Image
-                src="/logo_prata.png"
+                src="/logo_prata_optimized.png"
                 alt="Saraiva Vision Logo"
                 fill
                 className="object-contain"

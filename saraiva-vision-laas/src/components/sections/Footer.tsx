@@ -18,7 +18,7 @@ export default function Footer() {
             <div className="flex items-center gap-3 mb-4">
               <div className="relative w-16 h-16">
                 <Image
-                  src="/logo_prata.png"
+                  src="/logo_prata_optimized.png"
                   alt="Saraiva Vision Logo"
                   fill
                   className="object-contain"
