@@ -4,6 +4,7 @@ import ProblemSolutionSection from '@/components/sections/ProblemSolutionSection
 import CalculatorSection from '@/components/sections/CalculatorSection';
 import PlansSection from '@/components/sections/PlansSection';
 import PromotionsSection from '@/components/sections/PromotionsSection';
+import AddonsShowcase from '@/components/sections/AddonsShowcase';
 import TestimonialsSection from '@/components/sections/TestimonialsSection';
 import AboutClinicSection from '@/components/sections/AboutClinicSection';
 import ClinicServicesSection from '@/components/sections/ClinicServicesSection';
@@ -23,6 +24,7 @@ export default function Home() {
       <CalculatorSection />
       <PlansSection />
       <PromotionsSection />
+      <AddonsShowcase />
       <TestimonialsSection />
       <AboutClinicSection />
       <ClinicServicesSection />
