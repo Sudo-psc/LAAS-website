@@ -22,6 +22,6 @@ export const calculateSavings = (currentYearlyCost: number, laasYearlyCost: numb
   };
 };
 
-export const cn = (...classes: (string | undefined | null | false)[]): string => {
+export const cn = (...classes: (string | undefined | null | false | number)[]): string => {
   return classes.filter(Boolean).join(' ');
 };

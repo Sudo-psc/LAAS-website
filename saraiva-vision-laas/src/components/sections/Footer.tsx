@@ -16,14 +16,15 @@ export default function Footer() {
           <div>
             <h3 className="text-white text-xl font-bold mb-4">Saraiva Vision</h3>
             <p className="text-sm mb-4">
-              Clínica oftalmológica especializada em lentes de contato com o primeiro serviço de assinatura do Brasil.
+              Clínica oftalmológica especializada em lentes de contato. Parceiro oficial da rede <strong>Amor e Saúde</strong>. Primeiro serviço de assinatura de lentes do Brasil.
             </p>
             <div className="flex gap-4">
               <a
-                href={`https://instagram.com/${clinicInfo.socialMedia.instagram.replace('@', '')}`}
+                href={`https://instagram.com/${clinicInfo.socialMedia.instagram}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-white transition-colors"
+                aria-label="Instagram"
               >
                 <Instagram size={24} />
               </a>
@@ -32,9 +33,16 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-white transition-colors"
+                aria-label="Facebook"
               >
                 <Facebook size={24} />
               </a>
+            </div>
+            <div className="mt-4 flex items-center gap-2 text-sm">
+              <span className="inline-flex items-center bg-yellow-500 text-gray-900 px-3 py-1 rounded-full font-bold">
+                ⭐ {clinicInfo.googleRating}
+              </span>
+              <span className="text-gray-400">{clinicInfo.googleReviews}+ avaliações no Google</span>
             </div>
           </div>
 
@@ -44,7 +52,14 @@ export default function Footer() {
             <ul className="space-y-3 text-sm">
               <li className="flex items-start gap-2">
                 <MapPin size={18} className="flex-shrink-0 mt-0.5" />
-                <span>{clinicInfo.address}</span>
+                <a 
+                  href={clinicInfo.googleMapsUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-white transition-colors"
+                >
+                  {clinicInfo.fullAddress}
+                </a>
               </li>
               <li className="flex items-center gap-2">
                 <Phone size={18} className="flex-shrink-0" />
@@ -57,6 +72,9 @@ export default function Footer() {
                 <a href={`mailto:${clinicInfo.email}`} className="hover:text-white transition-colors">
                   {clinicInfo.email}
                 </a>
+              </li>
+              <li className="text-gray-400">
+                {clinicInfo.workingHours.weekdays}
               </li>
               <li>
                 <a
@@ -142,7 +160,13 @@ export default function Footer() {
         <div className="text-center text-sm text-gray-500">
           <p>© {currentYear} {clinicInfo.fullName}. Todos os direitos reservados.</p>
           <p className="mt-2">
-            CNPJ: {clinicInfo.cnpj} | {complianceInfo.doctorName} - {complianceInfo.crm}
+            CNPJ: {clinicInfo.cnpj} | {complianceInfo.doctorName} - {complianceInfo.crm} - Responsável Técnico Médico
+          </p>
+          <p className="mt-2">
+            {clinicInfo.team.nurse.name} - {clinicInfo.team.nurse.role}
+          </p>
+          <p className="mt-3 text-xs">
+            Parceiro oficial da rede <a href={clinicInfo.partner.url} target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300">{clinicInfo.partner.name}</a>
           </p>
           <p className="mt-2 text-xs">
             Desenvolvido com ❤️ para revolucionar o acesso a lentes de contato no Brasil

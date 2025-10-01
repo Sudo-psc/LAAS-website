@@ -20,14 +20,14 @@ export default function HeroSection() {
 
       <div className="container mx-auto px-4 py-20 relative z-10">
         <div className="max-w-5xl mx-auto text-center">
-          {/* Badge Médico */}
+          {/* Badge Médico com Brilho */}
           <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="inline-flex items-center gap-2 bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-semibold mb-6"
+            className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-100 to-indigo-100 text-blue-800 px-6 py-3 rounded-full text-sm font-semibold mb-6 shadow-lg border border-blue-200"
           >
-            <CheckCircle size={18} />
+            <CheckCircle size={18} className="text-green-600" />
             <span>MÉDICO - Dr. Philipe Saraiva Cruz - CRM-MG 69.870</span>
           </motion.div>
 
@@ -87,29 +87,49 @@ export default function HeroSection() {
             </button>
           </motion.div>
 
-          {/* Trust Indicators */}
+          {/* Trust Indicators com Visual Aprimorado */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.8 }}
-            className="mt-12 flex flex-wrap justify-center gap-8 text-sm text-gray-600"
+            className="mt-12 flex flex-wrap justify-center gap-6"
           >
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2 bg-white px-4 py-3 rounded-xl shadow-md border border-gray-100">
               <CheckCircle size={20} className="text-green-600" />
-              <span>Primeiro no Brasil</span>
+              <span className="text-sm font-semibold text-gray-800">Primeiro no Brasil</span>
             </div>
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2 bg-white px-4 py-3 rounded-xl shadow-md border border-gray-100">
               <CheckCircle size={20} className="text-green-600" />
-              <span>Sem taxas ocultas</span>
+              <span className="text-sm font-semibold text-gray-800">Sem taxas ocultas</span>
             </div>
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2 bg-white px-4 py-3 rounded-xl shadow-md border border-gray-100">
               <CheckCircle size={20} className="text-green-600" />
-              <span>Cancele quando quiser</span>
+              <span className="text-sm font-semibold text-gray-800">Cancele quando quiser</span>
             </div>
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2 bg-white px-4 py-3 rounded-xl shadow-md border border-gray-100">
               <CheckCircle size={20} className="text-green-600" />
-              <span>Consultas incluídas</span>
+              <span className="text-sm font-semibold text-gray-800">Consultas incluídas</span>
             </div>
+          </motion.div>
+
+          {/* Link para Site Principal */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 1 }}
+            className="mt-8"
+          >
+            <a
+              href="https://saraivavision.com.br"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-semibold text-sm transition-colors"
+            >
+              <span>Conheça todos os nossos serviços em saraivavision.com.br</span>
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+              </svg>
+            </a>
           </motion.div>
         </div>
       </div>
