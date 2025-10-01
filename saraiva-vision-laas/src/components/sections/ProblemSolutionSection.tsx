@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { TrendingDown, Calculator, ArrowRight } from 'lucide-react';
 import { formatCurrency } from '@/lib/utils';
+import Image from 'next/image';
 
 export default function ProblemSolutionSection() {
   const tradicionalCost = {
@@ -102,7 +103,14 @@ export default function ProblemSolutionSection() {
 
             <div className="text-center mb-6">
               <div className="inline-flex items-center gap-2 bg-green-200 text-green-800 px-4 py-2 rounded-full text-sm font-bold mb-4">
-                🎉 LAAS - SARAIVA VISION
+                <Image
+                  src="/icones/icones sem fundo/eye_check_award_icon.png"
+                  alt="Qualidade"
+                  width={20}
+                  height={20}
+                  className="object-contain"
+                />
+                LAAS - SARAIVA VISION
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-2">Assinatura Inteligente</h3>
             </div>

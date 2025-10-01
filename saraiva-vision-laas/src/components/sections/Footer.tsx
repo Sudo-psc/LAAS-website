@@ -1,8 +1,9 @@
 'use client';
 
-import { MapPin, Phone, Mail, Instagram, Facebook, MessageCircle } from 'lucide-react';
+import { Phone, Mail, Instagram, Facebook, MessageCircle, Clock } from 'lucide-react';
 import { complianceInfo, clinicInfo, whatsappConfig } from '@/data/compliance';
 import { generateWhatsAppLink } from '@/lib/utils';
+import Image from 'next/image';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -14,7 +15,17 @@ export default function Footer() {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
           {/* Sobre */}
           <div>
-            <h3 className="text-white text-xl font-bold mb-4">Saraiva Vision</h3>
+            <div className="flex items-center gap-3 mb-4">
+              <div className="relative w-16 h-16">
+                <Image
+                  src="/logo_prata.png"
+                  alt="Saraiva Vision Logo"
+                  fill
+                  className="object-contain"
+                />
+              </div>
+              <h3 className="text-white text-xl font-bold">Saraiva Vision</h3>
+            </div>
             <p className="text-sm mb-4">
               Clínica oftalmológica especializada em lentes de contato. Parceiro oficial da rede <strong>Amor e Saúde</strong>. Primeiro serviço de assinatura de lentes do Brasil.
             </p>
@@ -51,7 +62,13 @@ export default function Footer() {
             <h3 className="text-white text-xl font-bold mb-4">Contato</h3>
             <ul className="space-y-3 text-sm">
               <li className="flex items-start gap-2">
-                <MapPin size={18} className="flex-shrink-0 mt-0.5" />
+                <Image
+                  src="/icones/icones sem fundo/cartoon-character-location-icon.png"
+                  alt="Localização"
+                  width={20}
+                  height={20}
+                  className="flex-shrink-0 mt-0.5 object-contain"
+                />
                 <a 
                   href={clinicInfo.googleMapsUrl}
                   target="_blank"
@@ -73,8 +90,15 @@ export default function Footer() {
                   {clinicInfo.email}
                 </a>
               </li>
-              <li className="text-gray-400">
-                {clinicInfo.workingHours.weekdays}
+              <li className="flex items-center gap-2">
+                <Image
+                  src="/icones/icones sem fundo/customer_service_icon.png"
+                  alt="Horário"
+                  width={18}
+                  height={18}
+                  className="flex-shrink-0 object-contain"
+                />
+                <span className="text-gray-400">{clinicInfo.workingHours.weekdays}</span>
               </li>
               <li>
                 <a

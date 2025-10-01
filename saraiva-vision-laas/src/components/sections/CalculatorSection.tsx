@@ -2,8 +2,9 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Calculator, TrendingDown, MessageCircle } from 'lucide-react';
+import { TrendingDown, MessageCircle } from 'lucide-react';
 import { formatCurrency, calculateSavings, generateWhatsAppLink } from '@/lib/utils';
+import Image from 'next/image';
 
 type LensType = 'esferica' | 'torica' | 'multifocal' | 'rgp' | 'escleral';
 
@@ -62,7 +63,13 @@ export default function CalculatorSection() {
           className="text-center mb-12"
         >
           <div className="inline-flex items-center gap-2 bg-white/20 text-white px-4 py-2 rounded-full text-sm font-semibold mb-4">
-            <Calculator size={18} />
+            <Image
+              src="/icones/icones sem fundo/colorful_calculator_icon.png"
+              alt="Calculadora"
+              width={24}
+              height={24}
+              className="object-contain"
+            />
             <span>CALCULADORA DE ECONOMIA</span>
           </div>
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
@@ -126,7 +133,13 @@ export default function CalculatorSection() {
               onClick={handleCalculate}
               className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white text-xl font-bold py-4 rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2"
             >
-              <Calculator size={24} />
+              <Image
+                src="/icones/icones sem fundo/colorful_calculator_icon.png"
+                alt="Calcular"
+                width={28}
+                height={28}
+                className="object-contain"
+              />
               Calcular Minha Economia
             </button>
 

@@ -101,32 +101,78 @@ export default function TrustBadgesSection() {
           </motion.div>
         </div>
 
-        {/* Stats Row */}
+        {/* Stats Row com Ícones Visuais */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="mt-8 flex flex-wrap items-center justify-center gap-8 text-white"
+          className="mt-8 flex flex-wrap items-center justify-center gap-8"
         >
-          <div className="text-center">
-            <div className="text-3xl font-bold">15+</div>
-            <div className="text-sm opacity-90">Anos de Experiência</div>
+          {/* 15 Anos de Experiência */}
+          <div className="flex items-center gap-3 bg-white/10 backdrop-blur-sm px-4 py-3 rounded-xl">
+            <Image
+              src="/icones/icones sem fundo/ten_year_anniversary_badge.png"
+              alt="15 anos"
+              width={40}
+              height={40}
+              className="object-contain"
+            />
+            <div className="text-white">
+              <div className="text-2xl font-bold">15+</div>
+              <div className="text-xs opacity-90">Anos de Experiência</div>
+            </div>
           </div>
+
           <div className="hidden md:block w-px h-12 bg-white/30"></div>
-          <div className="text-center">
-            <div className="text-3xl font-bold">100%</div>
-            <div className="text-sm opacity-90">Certificado ANVISA</div>
+
+          {/* Certificado ANVISA */}
+          <div className="flex items-center gap-3 bg-white/10 backdrop-blur-sm px-4 py-3 rounded-xl">
+            <Image
+              src="/icones/icones sem fundo/blue_shield_checkmark_icon.png"
+              alt="ANVISA"
+              width={40}
+              height={40}
+              className="object-contain"
+            />
+            <div className="text-white">
+              <div className="text-2xl font-bold">100%</div>
+              <div className="text-xs opacity-90">Certificado ANVISA</div>
+            </div>
           </div>
+
           <div className="hidden md:block w-px h-12 bg-white/30"></div>
-          <div className="text-center">
-            <div className="text-3xl font-bold">24/7</div>
-            <div className="text-sm opacity-90">Suporte WhatsApp</div>
+
+          {/* Suporte 24/7 */}
+          <div className="flex items-center gap-3 bg-white/10 backdrop-blur-sm px-4 py-3 rounded-xl">
+            <Image
+              src="/icones/icones sem fundo/icon_atend24:7.png"
+              alt="Suporte 24/7"
+              width={40}
+              height={40}
+              className="object-contain"
+            />
+            <div className="text-white">
+              <div className="text-2xl font-bold">24/7</div>
+              <div className="text-xs opacity-90">Suporte WhatsApp</div>
+            </div>
           </div>
+
           <div className="hidden md:block w-px h-12 bg-white/30"></div>
-          <div className="text-center">
-            <div className="text-3xl font-bold">70%</div>
-            <div className="text-sm opacity-90">Economia Garantida</div>
+
+          {/* Economia Garantida */}
+          <div className="flex items-center gap-3 bg-white/10 backdrop-blur-sm px-4 py-3 rounded-xl">
+            <Image
+              src="/icones/icones sem fundo/piggy_bank_with_dollar_coin.png"
+              alt="Economia"
+              width={40}
+              height={40}
+              className="object-contain"
+            />
+            <div className="text-white">
+              <div className="text-2xl font-bold">48%</div>
+              <div className="text-xs opacity-90">Economia Garantida</div>
+            </div>
           </div>
         </motion.div>
       </div>

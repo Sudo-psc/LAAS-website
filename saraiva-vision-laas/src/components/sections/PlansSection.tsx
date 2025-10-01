@@ -4,29 +4,43 @@ import { motion } from 'framer-motion';
 import { MessageCircle, Check, Star } from 'lucide-react';
 import { plans } from '@/data/plans';
 import { formatCurrency, generateWhatsAppLink } from '@/lib/utils';
+import Image from 'next/image';
 
 export default function PlansSection() {
   const getBadgeColor = (badge?: string) => {
     switch (badge) {
       case 'popular':
-        return 'bg-blue-500 text-white';
+        return 'bg-gradient-to-r from-orange-500 to-red-500 text-white';
       case 'economia':
-        return 'bg-green-500 text-white';
+        return 'bg-gradient-to-r from-green-500 to-emerald-600 text-white';
       case 'premium':
-        return 'bg-purple-500 text-white';
+        return 'bg-gradient-to-r from-purple-500 to-pink-500 text-white';
       default:
         return '';
+    }
+  };
+
+  const getBadgeIcon = (badge?: string) => {
+    switch (badge) {
+      case 'popular':
+        return '/icones/icones sem fundo/flaming_crown_popular_badge.png';
+      case 'economia':
+        return '/icones/icones sem fundo/piggy_bank_with_dollar_coin.png';
+      case 'premium':
+        return '/icones/icones sem fundo/diamond_and_star_icon.png';
+      default:
+        return null;
     }
   };
 
   const getBadgeText = (badge?: string) => {
     switch (badge) {
       case 'popular':
-        return '🔥 MAIS POPULAR';
+        return 'MAIS POPULAR';
       case 'economia':
-        return '⭐ MAIOR ECONOMIA';
+        return 'MAIOR ECONOMIA';
       case 'premium':
-        return '👑 PREMIUM';
+        return 'PREMIUM';
       default:
         return '';
     }
@@ -67,9 +81,18 @@ export default function PlansSection() {
                 plan.badge === 'economia' ? 'ring-4 ring-green-400 transform scale-105' : ''
               }`}
             >
-              {/* Badge */}
+              {/* Badge com Ícone */}
               {plan.badge && (
-                <div className={`${getBadgeColor(plan.badge)} text-center py-2 font-bold text-sm`}>
+                <div className={`${getBadgeColor(plan.badge)} text-center py-3 font-bold text-sm flex items-center justify-center gap-2`}>
+                  {getBadgeIcon(plan.badge) && (
+                    <Image
+                      src={getBadgeIcon(plan.badge)!}
+                      alt={getBadgeText(plan.badge)}
+                      width={24}
+                      height={24}
+                      className="object-contain"
+                    />
+                  )}
                   {getBadgeText(plan.badge)}
                 </div>
               )}

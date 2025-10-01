@@ -28,9 +28,9 @@
   - Contexto: Ambiente clínico moderno e limpo
 
 ### Ícones Sugeridos:
-- [ ] **Ícone de olho/visão** mais estilizado
-- [ ] **Ícone de economia/poupança** com design moderno
-- [ ] **Ícone de assinatura/mensalidade** diferenciado
+- [x ] **Ícone de olho/visão** mais estilizado
+- [ x] **Ícone de economia/poupança** com design moderno
+- [ x] **Ícone de assinatura/mensalidade** diferenciado
 
 ---
 
@@ -53,9 +53,9 @@
   - Contexto: Mostrando tecnologia oftalmológica moderna
 
 ### Ícones Adicionais:
-- [ ] **Ícone de localização** customizado
-- [ ] **Ícone de qualidade/certificação**
-- [ ] **Ícone de experiência/tempo de mercado**
+- [x ] **Ícone de localização** customizado
+- [ x] **Ícone de qualidade/certificação**
+- [ x] **Ícone de experiência/tempo de mercado**
 
 ---
 
@@ -73,10 +73,10 @@
   - Equipamentos: Topógrafo, Retinógrafo, Campo visual, Autorrefrator
 
 ### Ícones Específicos:
-- [ ] **Ícone de topografia corneana**
-- [ ] **Ícone de mapeamento de retina**
+- [x ] **Ícone de topografia corneana**
+- [x ] **Ícone de mapeamento de retina**
 - [ ] **Ícone de cirurgia de catarata**
-- [ ] **Ícone de oftalmologia pediátrica**
+- [ x] **Ícone de oftalmologia pediátrica**
 
 ---
 
@@ -94,9 +94,9 @@
   - Contexto: Caixas e embalagens profissionais
 
 ### Ícones de Categorias:
-- [ ] **Ícone de plano popular** (fogo/coroa)
-- [ ] **Ícone de economia** (porco/dólar)
-- [ ] **Ícone de premium** (diamante/estrela)
+- [x ] **Ícone de plano popular** (fogo/coroa)
+- [x ] **Ícone de economia** (porco/dólar)
+- [x ] **Ícone de premium** (diamante/estrela)
 
 ---
 
@@ -155,9 +155,9 @@
 
 ### Ícones Sugeridos:
 - [ ] **Ícone de tecnologia de ponta**
-- [ ] **Ícone de atendimento personalizado**
-- [ ] **Ícone de garantia/segurança**
-- [ ] **Ícone de suporte 24/7**
+- [x ] **Ícone de atendimento personalizado**
+- [ x] **Ícone de garantia/segurança**
+- [ x] **Ícone de suporte 24/7**
 
 ---
 
@@ -177,7 +177,7 @@
 ### Ícones de Processo:
 - [ ] **Ícone de consulta/agendamento**
 - [ ] **Ícone de avaliação/exame**
-- [ ] **Ícone de entrega/recebimento**
+- [x ] **Ícone de entrega/recebimento**
 - [ ] **Ícone de acompanhamento**
 
 ---
@@ -216,7 +216,7 @@
   - Contexto: Código para escanear e contactar
 
 ### Ícones de Contato:
-- [ ] **Ícone de WhatsApp customizado**
+- [x] **Ícone de WhatsApp customizado**
 - [ ] **Ícone de endereço/mapa**
 - [ ] **Ícone de telefone**
 - [ ] **Ícone de e-mail**
@@ -232,10 +232,10 @@
 - [ ] **Overlay de transparência** para imagens
 
 ### Ícones de Redes Sociais:
-- [ ] **Ícone do Instagram** customizado
-- [ ] **Ícone do Facebook** customizado
-- [ ] **Ícone do LinkedIn** customizado
-- [ ] **Ícone do TikTok** customizado
+- [x] **Ícone do Instagram** customizado
+- [x] **Ícone do Facebook** customizado
+- [x] **Ícone do LinkedIn** customizado
+- [x] **Ícone do TikTok** customizado
 
 ### Elementos de UI:
 - [ ] **Ícones de navegação** (menu mobile)
