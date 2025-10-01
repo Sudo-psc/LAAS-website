@@ -13,6 +13,7 @@ export const plans: Plan[] = [
       '6 pares de lentes/ano',
       'Esféricas de hidrogel',
       'Consultas de acompanhamento',
+      '🎁 Exame de paquimetria GRATUITO',
       'Suporte técnico via WhatsApp',
       'Troca em caso de perda (taxa adicional)'
     ],
@@ -29,6 +30,7 @@ export const plans: Plan[] = [
       '6 pares de lentes tóricas/ano',
       'Correção de astigmatismo',
       'Consultas de acompanhamento',
+      '🎁 Exame de paquimetria GRATUITO',
       'Suporte técnico prioritário',
       '1 troca grátis por perda'
     ],
@@ -45,6 +47,7 @@ export const plans: Plan[] = [
       '6 pares multifocais/ano',
       'Correção de presbiopia',
       'Consultas ilimitadas',
+      '🎁 Exame de paquimetria GRATUITO',
       'Atendimento VIP',
       '2 trocas grátis por perda'
     ],
@@ -60,9 +63,10 @@ export const plans: Plan[] = [
     badge: 'economia',
     features: [
       '12 pares de lentes/ano',
-      'Economia de até 70%',
+      'Economia de até 48%',
       'Pagamento anual facilitado',
       'Consultas de acompanhamento',
+      '🎁 Exame de paquimetria GRATUITO',
       'Suporte técnico via WhatsApp'
     ],
     whatsappMessage: 'Olá! Estou interessado no plano Conforto Anual por R$ 180,55/mês (R$ 1.949,94 à vista). Quando posso agendar?'
@@ -78,6 +82,7 @@ export const plans: Plan[] = [
       '12 pares tóricas/ano',
       'Tecnologia de última geração',
       'Consultas ilimitadas',
+      '🎁 Exame de paquimetria GRATUITO',
       'Suporte prioritário',
       '1 troca grátis por perda'
     ],
@@ -95,6 +100,7 @@ export const plans: Plan[] = [
       '2 pares RGP/ano',
       'Alta durabilidade',
       'Melhor qualidade óptica',
+      '🎁 Exame de paquimetria GRATUITO',
       'Consultas especializadas',
       'Adaptação personalizada'
     ],
@@ -111,6 +117,7 @@ export const plans: Plan[] = [
       '2 pares RGP tóricas/ano',
       'Correção avançada de astigmatismo',
       'Design personalizado',
+      '🎁 Exame de paquimetria GRATUITO',
       'Consultas ilimitadas',
       'Suporte técnico especializado'
     ],
@@ -128,6 +135,7 @@ export const plans: Plan[] = [
       '1 par de lentes esclerais/ano',
       'Casos complexos (ceratocone avançado)',
       'Adaptação ultra-especializada',
+      '🎁 Exame de paquimetria GRATUITO',
       'Acompanhamento contínuo',
       'Tecnologia de ponta'
     ],

@@ -3,6 +3,7 @@ import TrustBadgesSection from '@/components/sections/TrustBadgesSection';
 import ProblemSolutionSection from '@/components/sections/ProblemSolutionSection';
 import CalculatorSection from '@/components/sections/CalculatorSection';
 import PlansSection from '@/components/sections/PlansSection';
+import PromotionsSection from '@/components/sections/PromotionsSection';
 import TestimonialsSection from '@/components/sections/TestimonialsSection';
 import AboutClinicSection from '@/components/sections/AboutClinicSection';
 import ClinicServicesSection from '@/components/sections/ClinicServicesSection';
@@ -21,6 +22,7 @@ export default function Home() {
       <ProblemSolutionSection />
       <CalculatorSection />
       <PlansSection />
+      <PromotionsSection />
       <TestimonialsSection />
       <AboutClinicSection />
       <ClinicServicesSection />

@@ -96,21 +96,37 @@ export default function AboutClinicSection() {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="bg-gradient-to-br from-gray-900 to-gray-800 rounded-3xl p-8 md:p-12 text-white"
           >
-            <div className="flex items-center gap-3 mb-6">
-              <div className="bg-blue-500 p-3 rounded-full">
-                <Award size={32} />
+            <div className="flex flex-col md:flex-row gap-8 items-center md:items-start">
+              {/* Foto de Perfil */}
+              <div className="flex-shrink-0">
+                <div className="w-48 h-48 md:w-56 md:h-56 rounded-full overflow-hidden border-4 border-blue-500 shadow-2xl">
+                  <img
+                    src="/drphilipe_perfil.jpeg"
+                    alt="Dr. Philipe Saraiva Cruz"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
               </div>
-              <div>
-                <h3 className="text-3xl font-bold">{clinicInfo.team.doctor.name}</h3>
-                <p className="text-blue-300 font-semibold">{clinicInfo.team.doctor.crm} • {clinicInfo.team.doctor.role}</p>
+              
+              {/* Informações do Médico */}
+              <div className="flex-1 text-center md:text-left">
+                <div className="flex items-center justify-center md:justify-start gap-3 mb-6">
+                  <div className="bg-blue-500 p-3 rounded-full">
+                    <Award size={32} />
+                  </div>
+                  <div>
+                    <h3 className="text-3xl font-bold">{clinicInfo.team.doctor.name}</h3>
+                    <p className="text-blue-300 font-semibold">{clinicInfo.team.doctor.crm} • {clinicInfo.team.doctor.role}</p>
+                  </div>
+                </div>
+                <p className="text-gray-300 leading-relaxed">
+                  {clinicInfo.team.doctor.bio}
+                </p>
+                <p className="text-gray-300 leading-relaxed mt-4">
+                  Sua abordagem combina conhecimento técnico atualizado com um cuidado genuíno pelos pacientes, garantindo não apenas tratamentos eficazes, mas também uma experiência acolhedora e tranquilizadora durante todo o processo de cuidado com a visão.
+                </p>
               </div>
             </div>
-            <p className="text-gray-300 leading-relaxed">
-              {clinicInfo.team.doctor.bio}
-            </p>
-            <p className="text-gray-300 leading-relaxed mt-4">
-              Sua abordagem combina conhecimento técnico atualizado com um cuidado genuíno pelos pacientes, garantindo não apenas tratamentos eficazes, mas também uma experiência acolhedora e tranquilizadora durante todo o processo de cuidado com a visão.
-            </p>
           </motion.div>
         </div>
 
