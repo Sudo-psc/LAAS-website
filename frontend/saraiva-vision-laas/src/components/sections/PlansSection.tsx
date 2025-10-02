@@ -1,5 +1,6 @@
 'use client';
 
+import React from 'react';
 import { motion } from 'framer-motion';
 import { MessageCircle, Check, Star, Video, Shield, Microscope, Plus } from 'lucide-react';
 import { plans } from '@/data/plans';

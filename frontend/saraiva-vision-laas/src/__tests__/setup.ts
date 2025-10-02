@@ -50,4 +50,5 @@ jest.mock('lucide-react', () => ({
   TrendingDown: () => 'TrendingDown',
   Check: () => 'Check',
   Star: () => 'Star',
+  Eye: () => 'Eye',
 }));

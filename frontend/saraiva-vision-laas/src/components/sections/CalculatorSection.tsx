@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { TrendingDown, MessageCircle, Info, Plus } from 'lucide-react';
 import { formatCurrency, calculateSavings, generateWhatsAppLink } from '@/lib/utils';

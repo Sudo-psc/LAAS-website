@@ -28,9 +28,15 @@ module.exports = {
     '[/\\\\]node_modules[/\\\\].+\\.(js|jsx|mjs|cjs|ts|tsx)$',
     '^.+\\.module\\.(css|sass|scss)$',
   ],
+  moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json'],
+  testEnvironmentOptions: {
+    url: 'http://localhost',
+  },
+  extensionsToTreatAsEsm: ['.ts', '.tsx'],
   globals: {
-    'babel-jest': {
-      configFile: '<rootDir>/.babelrc.jest.js',
+    'ts-jest': {
+      tsconfig: '<rootDir>/tsconfig.json',
+      babelConfig: true,
     },
   },
 };
