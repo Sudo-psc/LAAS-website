@@ -1,12 +1,17 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  // Remove Turbopack for now as it's causing issues with Babel
-  // turbopack: {
-  //   root: __dirname,
-  // },
+  // Habilitar Turbopack para desenvolvimento mais rápido
+  turbopack: {
+    rules: {
+      '*.svg': {
+        loaders: ['@svgr/webpack'],
+        as: '*.js',
+      },
+    },
+  },
 
-  // Image optimization
+  // Image optimization com suporte a formatos modernos
   images: {
     domains: ['saraivavision.com.br'],
     formats: ['image/webp', 'image/avif'],
@@ -24,14 +29,14 @@ const nextConfig: NextConfig = {
   httpAgentOptions: {
     keepAlive: true,
   },
-
-  // Experimental features
+  
+  // Experimental features do Next.js 15
   experimental: {
     optimizeCss: true,
-    optimizePackageImports: ['lucide-react', 'framer-motion'],
+    optimizePackageImports: ['lucide-react', 'framer-motion', 'react-hook-form', 'zod'],
   },
 
-  // Headers for security and performance
+  // Headers para segurança e performance
   async headers() {
     return [
       {
@@ -52,6 +57,10 @@ const nextConfig: NextConfig = {
           {
             key: 'Permissions-Policy',
             value: 'camera=(), microphone=(), geolocation=()',
+          },
+          {
+            key: 'Strict-Transport-Security',
+            value: 'max-age=31536000; includeSubDomains',
           },
         ],
       },
@@ -81,6 +90,11 @@ const nextConfig: NextConfig = {
         permanent: false,
       },
     ];
+  },
+
+  // Configuração de ambiente para desenvolvimento vs produção
+  env: {
+    CUSTOM_KEY: process.env.NODE_ENV === 'development' ? 'dev' : 'prod',
   },
 };
 

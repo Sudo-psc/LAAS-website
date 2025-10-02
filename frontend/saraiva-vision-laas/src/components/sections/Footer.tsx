@@ -1,7 +1,7 @@
 'use client';
 
-import { Phone, Mail, Instagram, Facebook, MessageCircle, Clock } from 'lucide-react';
-import { complianceInfo, clinicInfo, whatsappConfig } from '@/data/compliance';
+import { Phone, Mail, Instagram, Facebook, MessageCircle } from 'lucide-react';
+import { complianceInfo, clinicInfo } from '@/data/compliance';
 import { generateWhatsAppLink } from '@/lib/utils';
 import Image from 'next/image';
 

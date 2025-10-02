@@ -25,7 +25,8 @@ module.exports = {
     '<rootDir>/src/__tests__/setup.ts'
   ],
   transformIgnorePatterns: [
-    'node_modules/(?!(framer-motion|lucide-react)/)'
+    '[/\\\\]node_modules[/\\\\].+\\.(js|jsx|mjs|cjs|ts|tsx)$',
+    '^.+\\.module\\.(css|sass|scss)$',
   ],
   globals: {
     'babel-jest': {

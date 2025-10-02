@@ -14,6 +14,8 @@ export default function CookieBanner() {
       const timer = setTimeout(() => setShowBanner(true), 2000);
       return () => clearTimeout(timer);
     }
+    // Return explicit undefined for the case when consent exists
+    return undefined;
   }, []);
 
   const acceptCookies = () => {

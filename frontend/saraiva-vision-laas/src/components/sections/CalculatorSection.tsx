@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { TrendingDown, MessageCircle } from 'lucide-react';
+import { TrendingDown, MessageCircle, Info, Plus } from 'lucide-react';
 import { formatCurrency, calculateSavings, generateWhatsAppLink } from '@/lib/utils';
 import Image from 'next/image';
 
@@ -11,19 +11,27 @@ type LensType = 'esferica' | 'torica' | 'multifocal' | 'rgp' | 'escleral';
 export default function CalculatorSection() {
   const [currentCost, setCurrentCost] = useState<string>('');
   const [lensType, setLensType] = useState<LensType>('esferica');
+  const [topografiaAddon, setTopografiaAddon] = useState(false);
+  const [lentesColoridasAddon, setLentesColoridasAddon] = useState(false);
   const [result, setResult] = useState<{
     savings: number;
     savingsPercentage: number;
     recommendedPlan: string;
     laasYearlyCost: number;
+    totalWithAddons: number;
   } | null>(null);
 
   const lensTypeMapping: Record<LensType, { name: string; laasYearlyCost: number; planName: string }> = {
-    esferica: { name: 'Esféricas', laasYearlyCost: 1949.94, planName: 'Conforto Anual' },
-    torica: { name: 'Tóricas (Astigmatismo)', laasYearlyCost: 2931.12, planName: 'Visão HD Anual' },
-    multifocal: { name: 'Multifocais (Presbiopia)', laasYearlyCost: 4409.10, planName: 'Elite Mensal' },
-    rgp: { name: 'RGP (Rígidas)', laasYearlyCost: 5390.28, planName: 'Premium RGP' },
-    escleral: { name: 'Esclerais', laasYearlyCost: 9824.22, planName: 'Escleral Premium' }
+    esferica: { name: 'Esféricas', laasYearlyCost: 1068, planName: 'Básico Mensal' }, // R$ 89/mês x 12
+    torica: { name: 'Tóricas (Astigmatismo)', laasYearlyCost: 2148, planName: 'Plus Mensal' }, // R$ 179/mês x 12
+    multifocal: { name: 'Multifocais (Presbiopia)', laasYearlyCost: 2628, planName: 'Conforto Mensal' }, // R$ 219/mês x 12
+    rgp: { name: 'RGP (Rígidas)', laasYearlyCost: 3348, planName: 'Premium RGP' }, // R$ 279/mês x 12
+    escleral: { name: 'Esclerais', laasYearlyCost: 4188, planName: 'Escleral Premium' } // R$ 349/mês x 12
+  };
+
+  const addons = {
+    topografia: { name: 'Topografia Anual', yearlyPrice: 480 }, // R$ 40/mês x 12
+    lentesColoridas: { name: 'Lentes Coloridas', yearlyPrice: 360 } // R$ 30/mês x 12
   };
 
   const handleCalculate = () => {
@@ -35,13 +43,20 @@ export default function CalculatorSection() {
     }
 
     const laasYearlyCost = lensTypeMapping[lensType].laasYearlyCost;
-    const { savings, savingsPercentage } = calculateSavings(cost, laasYearlyCost);
+    
+    // Calcular custo total com addons
+    let totalWithAddons = laasYearlyCost;
+    if (topografiaAddon) totalWithAddons += addons.topografia.yearlyPrice;
+    if (lentesColoridasAddon) totalWithAddons += addons.lentesColoridas.yearlyPrice;
+    
+    const { savings, savingsPercentage } = calculateSavings(cost, totalWithAddons);
     
     setResult({
       savings,
       savingsPercentage,
       recommendedPlan: lensTypeMapping[lensType].planName,
-      laasYearlyCost
+      laasYearlyCost,
+      totalWithAddons
     });
   };
 
@@ -111,8 +126,21 @@ export default function CalculatorSection() {
 
             {/* Dropdown de Tipo de Lente */}
             <div>
-              <label htmlFor="lens-type" className="block text-lg font-bold text-gray-900 mb-2">
+              <label htmlFor="lens-type" className="block text-lg font-bold text-gray-900 mb-2 flex items-center gap-2">
                 Qual tipo de lente você usa?
+                <div className="group relative">
+                  <Info size={18} className="text-blue-600 cursor-help" />
+                  <div className="absolute left-0 bottom-full mb-2 hidden group-hover:block w-64 bg-gray-900 text-white text-xs rounded-lg p-3 shadow-xl z-10">
+                    <p className="font-semibold mb-1">✅ Inclui:</p>
+                    <ul className="space-y-0.5">
+                      <li>• 12 pares/ano</li>
+                      <li>• Paquimetria</li>
+                      <li>• Consultas de acompanhamento</li>
+                      <li>• Solução de limpeza</li>
+                    </ul>
+                    <div className="absolute bottom-0 left-4 transform translate-y-1/2 rotate-45 w-2 h-2 bg-gray-900"></div>
+                  </div>
+                </div>
               </label>
               <select
                 id="lens-type"
@@ -126,6 +154,54 @@ export default function CalculatorSection() {
                   </option>
                 ))}
               </select>
+            </div>
+
+            {/* Addons Opcionais */}
+            <div className="bg-purple-50 rounded-xl p-6 border-2 border-purple-200">
+              <div className="flex items-center gap-2 mb-4">
+                <Plus size={20} className="text-purple-600" />
+                <h3 className="text-lg font-bold text-gray-900">Addons Opcionais</h3>
+              </div>
+              
+              <div className="space-y-3">
+                {/* Toggle Topografia */}
+                <label className="flex items-center justify-between cursor-pointer group">
+                  <div className="flex items-center gap-3">
+                    <input
+                      type="checkbox"
+                      checked={topografiaAddon}
+                      onChange={(e) => setTopografiaAddon(e.target.checked)}
+                      className="w-5 h-5 text-purple-600 border-gray-300 rounded focus:ring-purple-500 cursor-pointer"
+                    />
+                    <div>
+                      <span className="font-semibold text-gray-900 group-hover:text-purple-600 transition-colors">
+                        Topografia Anual
+                      </span>
+                      <p className="text-sm text-gray-600">Mapeamento completo da córnea</p>
+                    </div>
+                  </div>
+                  <span className="font-bold text-purple-600">+R$ 40/mês</span>
+                </label>
+
+                {/* Toggle Lentes Coloridas */}
+                <label className="flex items-center justify-between cursor-pointer group">
+                  <div className="flex items-center gap-3">
+                    <input
+                      type="checkbox"
+                      checked={lentesColoridasAddon}
+                      onChange={(e) => setLentesColoridasAddon(e.target.checked)}
+                      className="w-5 h-5 text-purple-600 border-gray-300 rounded focus:ring-purple-500 cursor-pointer"
+                    />
+                    <div>
+                      <span className="font-semibold text-gray-900 group-hover:text-purple-600 transition-colors">
+                        Lentes Coloridas
+                      </span>
+                      <p className="text-sm text-gray-600">Cores naturais e vibrantes</p>
+                    </div>
+                  </div>
+                  <span className="font-bold text-purple-600">+R$ 30/mês</span>
+                </label>
+              </div>
             </div>
 
             {/* Botão Calcular */}
@@ -173,9 +249,31 @@ export default function CalculatorSection() {
                       <span className="font-bold text-gray-900">{formatCurrency(parseFloat(currentCost.replace(/[^\d,]/g, '').replace(',', '.')))}</span>
                     </div>
                     <div className="flex justify-between items-center">
-                      <span className="text-gray-700">Com LAAS ({result.recommendedPlan}):</span>
-                      <span className="font-bold text-green-600">{formatCurrency(result.laasYearlyCost)}</span>
+                      <span className="text-gray-700">Plano {result.recommendedPlan}:</span>
+                      <span className="font-bold text-gray-900">{formatCurrency(result.laasYearlyCost)}</span>
                     </div>
+                    
+                    {/* Mostrar addons se selecionados */}
+                    {topografiaAddon && (
+                      <div className="flex justify-between items-center text-sm">
+                        <span className="text-purple-700">+ Topografia Anual:</span>
+                        <span className="font-semibold text-purple-700">{formatCurrency(addons.topografia.yearlyPrice)}</span>
+                      </div>
+                    )}
+                    {lentesColoridasAddon && (
+                      <div className="flex justify-between items-center text-sm">
+                        <span className="text-purple-700">+ Lentes Coloridas:</span>
+                        <span className="font-semibold text-purple-700">{formatCurrency(addons.lentesColoridas.yearlyPrice)}</span>
+                      </div>
+                    )}
+                    
+                    {(topografiaAddon || lentesColoridasAddon) && (
+                      <div className="flex justify-between items-center pt-1 border-t border-gray-200">
+                        <span className="text-gray-700 font-semibold">Total com LAAS:</span>
+                        <span className="font-bold text-green-600">{formatCurrency(result.totalWithAddons)}</span>
+                      </div>
+                    )}
+                    
                     <div className="border-t-2 border-green-200 pt-2 flex justify-between items-center">
                       <span className="text-lg font-bold text-gray-900">Economia total:</span>
                       <span className="text-2xl font-bold text-green-600">{formatCurrency(result.savings)}</span>
